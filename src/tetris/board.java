@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
 
 public class board extends JPanel{
 	private final int BOARD_WIDTH = 10;
-    private final int BOARD_HEIGHT = 22;
+    private final int BOARD_HEIGHT = 20;
     private final int PERIOD_INTERVAL = 300;
 
     private Timer timer;
@@ -55,6 +55,18 @@ public class board extends JPanel{
     }
 
     void start() {
+
+        curPiece = new shape();
+        board = new Tetrominoe[BOARD_WIDTH * BOARD_HEIGHT];
+
+        clearBoard();
+        newPiece();
+
+        timer = new Timer(PERIOD_INTERVAL, new GameCycle());
+        timer.start();
+    }
+
+    void restart() {
 
         curPiece = new shape();
         board = new Tetrominoe[BOARD_WIDTH * BOARD_HEIGHT];
@@ -184,6 +196,8 @@ public class board extends JPanel{
 
             var msg = String.format("Game over. Score: %d", numLinesRemoved);
             statusbar.setText(msg);
+
+            restart();
         }
     }
 
@@ -331,6 +345,7 @@ public class board extends JPanel{
                 case KeyEvent.VK_UP -> tryMove(curPiece.rotateLeft(), curX, curY);
                 case KeyEvent.VK_SPACE -> dropDown();
                 case KeyEvent.VK_D -> oneLineDown();
+                case KeyEvent.VK_F -> restart();
             }
         }
     }

@@ -5,8 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Tetris  extends JFrame {
-	private JLabel statusbar;
+public class Tetris extends JFrame {
+    private JLabel statusbar;
 
     public Tetris() {
 
@@ -44,7 +44,7 @@ public class Tetris  extends JFrame {
 }
 
 /*
-Java Tetris game
-Author: Jan Bodnar
-http://zetcode.com
+ * Java Tetris game
+ * Author: Jan Bodnar
+ * http://zetcode.com
  */

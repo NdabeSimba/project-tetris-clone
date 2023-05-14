@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class board extends JPanel{
-	private final int BOARD_WIDTH = 10;
+public class board extends JPanel {
+    private final int BOARD_WIDTH = 10;
     private final int BOARD_HEIGHT = 20;
     private final int PERIOD_INTERVAL = 300;
 
@@ -269,7 +269,7 @@ public class board extends JPanel{
 
     private void drawSquare(Graphics g, int x, int y, Tetrominoe shape) {
 
-        Color colors[] = {new Color(0, 0, 0), new Color(204, 102, 102),
+        Color colors[] = { new Color(0, 0, 0), new Color(204, 102, 102),
                 new Color(102, 204, 102), new Color(102, 102, 204),
                 new Color(204, 204, 102), new Color(204, 102, 204),
                 new Color(102, 204, 204), new Color(218, 170, 0)

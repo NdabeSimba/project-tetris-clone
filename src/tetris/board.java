@@ -345,7 +345,7 @@ public class board extends JPanel {
                 case KeyEvent.VK_UP -> tryMove(curPiece.rotateLeft(), curX, curY);
                 case KeyEvent.VK_SPACE -> dropDown();
                 case KeyEvent.VK_D -> oneLineDown();
-                case KeyEvent.VK_F -> restart();
+                case KeyEvent.VK_R -> restart();
             }
         }
     }

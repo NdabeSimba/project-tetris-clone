@@ -15,7 +15,7 @@ import java.awt.event.KeyEvent;
 public class board extends JPanel {
     private final int BOARD_WIDTH = 10;
     private final int BOARD_HEIGHT = 20;
-    private final int PERIOD_INTERVAL = 300;
+    private final int PERIOD_INTERVAL = 320;
 
     private Timer timer;
     private boolean isFallingFinished = false;
@@ -271,9 +271,10 @@ public class board extends JPanel {
     private void drawSquare(Graphics g, int x, int y, Tetrominoe shape) {
 
         Color colors[] = { new Color(0, 0, 0), new Color(204, 102, 102),
-                new Color(102, 204, 102), new Color(102, 102, 204),
-                new Color(204, 204, 102), new Color(204, 102, 204),
-                new Color(102, 204, 204), new Color(218, 170, 0)
+                new Color(82, 204, 82), new Color(102, 82, 204),
+                new Color(224, 224, 82), new Color(224, 112, 224),
+                new Color(82, 204, 204), new Color(204, 170, 0)
+                // in order: green, purple, yellow, pink, blue, ?
         };
 
         var color = colors[shape.ordinal()];

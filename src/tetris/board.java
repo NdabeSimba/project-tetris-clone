@@ -2,6 +2,8 @@ package tetris;
 
 import tetris.shape.Tetrominoe;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -86,6 +88,7 @@ public class board extends JPanel {
         if (isPaused) {
 
             statusbar.setText("paused");
+            
         } else {
 
             statusbar.setText(String.valueOf(numLinesRemoved));

@@ -43,8 +43,7 @@ public class Tetris extends JFrame {
     }
 }
 
-/*
- * Java Tetris game
- * Author: Jan Bodnar
- * http://zetcode.com
+/* known issue : 
+    block moves when paused
+    need better gui
  */

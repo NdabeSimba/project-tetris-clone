@@ -46,4 +46,5 @@ public class Tetris extends JFrame {
 /* known issue : 
     block moves when paused
     need better gui
+    score not resetting
  */

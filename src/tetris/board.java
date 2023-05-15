@@ -2,8 +2,6 @@ package tetris;
 
 import tetris.shape.Tetrominoe;
 
-import java.util.concurrent.TimeUnit;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -13,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
 
 public class board extends JPanel {
     private final int BOARD_WIDTH = 10;
@@ -77,6 +77,9 @@ public class board extends JPanel {
         clearBoard();
         newPiece();
 
+        numLinesRemoved = 0;
+        statusbar.setText(String.valueOf(numLinesRemoved));
+
         timer = new Timer(PERIOD_INTERVAL, new GameCycle());
         timer.start();
     }
@@ -88,7 +91,7 @@ public class board extends JPanel {
         if (isPaused) {
 
             statusbar.setText("paused");
-            
+
         } else {
 
             statusbar.setText(String.valueOf(numLinesRemoved));
@@ -190,18 +193,21 @@ public class board extends JPanel {
     private void newPiece() {
 
         curPiece.setRandomShape();
-        curX = BOARD_WIDTH / 2 ;
+        curX = BOARD_WIDTH / 2;
         curY = BOARD_HEIGHT - 1 + curPiece.minY();
 
         if (!tryMove(curPiece, curX, curY)) {
+            var msg = String.format("Game over. Score: %d", numLinesRemoved);
+            statusbar.setText(msg);
 
             curPiece.setShape(Tetrominoe.NoShape);
             timer.stop();
 
-            var msg = String.format("Game over. Score: %d", numLinesRemoved);
-            statusbar.setText(msg);
-
             restart();
+
+            // if (IsKeyPressed.isRPressed()) {
+            // }
+
         }
     }
 
@@ -354,4 +360,40 @@ public class board extends JPanel {
             }
         }
     }
+
+    // public class IsKeyPressed {
+    //     private static volatile boolean rPressed = false;
+
+    //     public static boolean isRPressed() {
+    //         synchronized (IsKeyPressed.class) {
+    //             return rPressed;
+    //         }
+    //     }
+
+    //     public static void main(String[] args) {
+    //         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
+
+    //             @Override
+    //             public boolean dispatchKeyEvent(KeyEvent ke) {
+    //                 synchronized (IsKeyPressed.class) {
+    //                     switch (ke.getID()) {
+    //                         case KeyEvent.KEY_PRESSED:
+    //                             if (ke.getKeyCode() == KeyEvent.VK_R) {
+    //                                 rPressed = true;
+    //                             }
+    //                             break;
+
+    //                         case KeyEvent.KEY_RELEASED:
+    //                             if (ke.getKeyCode() == KeyEvent.VK_R) {
+    //                                 rPressed = false;
+    //                             }
+    //                             break;
+    //                     }
+    //                     return false;
+    //                 }
+    //             }
+    //         });
+    //     }
+
+    // }
 }

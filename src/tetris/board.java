@@ -67,6 +67,7 @@ public class board extends JPanel {
     }
 
     void restart() {
+        timer.stop();
 
         curPiece = new shape();
         board = new Tetrominoe[BOARD_WIDTH * BOARD_HEIGHT];
@@ -186,7 +187,7 @@ public class board extends JPanel {
     private void newPiece() {
 
         curPiece.setRandomShape();
-        curX = BOARD_WIDTH / 2 + 1;
+        curX = BOARD_WIDTH / 2 ;
         curY = BOARD_HEIGHT - 1 + curPiece.minY();
 
         if (!tryMove(curPiece, curX, curY)) {

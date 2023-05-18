@@ -1,1 +1,1 @@
-tetris game that can be played on a smartphone
+tetris game that can be played on android

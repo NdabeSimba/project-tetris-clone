@@ -1,6 +1,6 @@
-package tetrisv2;
+package tetris1_2;
 
-import tetrisv2.shape.Tetrominoe;
+import tetris1_2.shape.Tetrominoe;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;

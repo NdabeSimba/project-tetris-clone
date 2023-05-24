@@ -1,4 +1,4 @@
-package tetrisv2;
+package tetris1_2;
 
 import java.util.Random;
 

@@ -3,7 +3,7 @@ package tetris1_2;
 import java.util.Random;
 
 public class shape {
-	protected enum Tetrominoe {
+    protected enum Tetrominoe {
         NoShape, ZShape, SShape, LineShape,
         TShape, SquareShape, LShape, MirroredLShape
     }
@@ -19,15 +19,15 @@ public class shape {
 
     void setShape(Tetrominoe shape) {
 
-        int[][][] coordsTable = new int[][][]{
-                {{0, 0}, {0, 0}, {0, 0}, {0, 0}},
-                {{0, -1}, {0, 0}, {-1, 0}, {-1, 1}},
-                {{0, -1}, {0, 0}, {1, 0}, {1, 1}},
-                {{0, -1}, {0, 0}, {0, 1}, {0, 2}},
-                {{-1, 0}, {0, 0}, {1, 0}, {0, 1}},
-                {{0, 0}, {1, 0}, {0, 1}, {1, 1}},
-                {{-1, -1}, {0, -1}, {0, 0}, {0, 1}},
-                {{1, -1}, {0, -1}, {0, 0}, {0, 1}}
+        int[][][] coordsTable = new int[][][] {
+                { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 } },
+                { { 0, -1 }, { 0, 0 }, { -1, 0 }, { -1, 1 } },
+                { { 0, -1 }, { 0, 0 }, { 1, 0 }, { 1, 1 } },
+                { { 0, -1 }, { 0, 0 }, { 0, 1 }, { 0, 2 } },
+                { { -1, 0 }, { 0, 0 }, { 1, 0 }, { 0, 1 } },
+                { { 0, 0 }, { 1, 0 }, { 0, 1 }, { 1, 1 } },
+                { { -1, -1 }, { 0, -1 }, { 0, 0 }, { 0, 1 } },
+                { { 1, -1 }, { 0, -1 }, { 0, 0 }, { 0, 1 } }
         };
 
         for (int i = 0; i < 4; i++) {
@@ -83,7 +83,6 @@ public class shape {
 
         return m;
     }
-
 
     int minY() {
 

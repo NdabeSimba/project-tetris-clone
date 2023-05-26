@@ -44,7 +44,6 @@ public class Tetris extends JFrame {
         setIconImage(img.getImage());
 
         // background color
-        
 
         // title, size set
         setTitle("Tetris");
@@ -52,9 +51,6 @@ public class Tetris extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
-
-    // background
-    
 
     // main
     public static void main(String[] args) {

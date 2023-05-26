@@ -37,6 +37,13 @@ public class board extends JPanel {
         setFocusable(true);
         statusbar = parent.getStatusBar();
         addKeyListener(new TAdapter());
+
+        this.setBackground(Color.darkGray);
+        JLabel label = new JLabel("Test v2");
+        label.setForeground(Color.white);
+        label.setBackground(Color.lightGray);
+        label.setOpaque(true);
+        this.add(label);
     }
 
     private int squareWidth() {
@@ -332,41 +339,4 @@ public class board extends JPanel {
             }
         }
     }
-
-    // public class IsKeyPressed {
-    // private static volatile boolean rPressed = false;
-
-    // public static boolean isRPressed() {
-    // synchronized (IsKeyPressed.class) {
-    // return rPressed;
-    // }
-    // }
-
-    // public static void main(String[] args) {
-    // KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new
-    // KeyEventDispatcher() {
-
-    // @Override
-    // public boolean dispatchKeyEvent(KeyEvent ke) {
-    // synchronized (IsKeyPressed.class) {
-    // switch (ke.getID()) {
-    // case KeyEvent.KEY_PRESSED:
-    // if (ke.getKeyCode() == KeyEvent.VK_R) {
-    // rPressed = true;
-    // }
-    // break;
-
-    // case KeyEvent.KEY_RELEASED:
-    // if (ke.getKeyCode() == KeyEvent.VK_R) {
-    // rPressed = false;
-    // }
-    // break;
-    // }
-    // return false;
-    // }
-    // }
-    // });
-    // }
-
-    // }
 }

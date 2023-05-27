@@ -2,7 +2,7 @@ from random import randrange as rand
 import pygame, sys
 
 # The configuration
-config = {"cell_size": 20, "cols": 8, "rows": 16, "delay": 750, "maxfps": 30}
+config = {"cell_size": 25, "cols": 10, "rows": 20, "delay": 700, "maxfps": 60}
 
 colors = [
     (0, 0, 0),

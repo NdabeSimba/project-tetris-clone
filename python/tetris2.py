@@ -218,6 +218,4 @@ Press space to continue"""
 if __name__ == "__main__":
     App = TetrisApp()
     App.run()
-    for event in pygame.event.get():
-        if event.key == eval("pygame.ESC_"):
-            break
+

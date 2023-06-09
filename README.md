@@ -1,1 +1,1 @@
-tetris game that can be played on android
+trying to clone the game, tetris.

@@ -137,6 +137,7 @@ pygame.init()
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GRAY = (128, 128, 128)
+GRAY2 = (100, 100, 100)
 
 size = (400, 510)
 screen = pygame.display.set_mode(size)
@@ -184,7 +185,7 @@ while not done:
         if event.key == pygame.K_DOWN:
             pressing_down = False
 
-    screen.fill(WHITE)
+    screen.fill(GRAY2)
 
     for i in range(game.height):
         for j in range(game.width):
@@ -192,7 +193,7 @@ while not done:
                 screen,
                 GRAY,
                 [game.x + game.zoom * j, game.y + game.zoom * i, game.zoom, game.zoom],
-                0,
+                1,
             )
             if game.field[i][j] > 0:
                 pygame.draw.rect(

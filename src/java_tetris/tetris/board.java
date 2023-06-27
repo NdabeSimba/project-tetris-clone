@@ -1,10 +1,11 @@
-package tetris;
-
-import tetris.shape.Tetrominoe;
+package java_tetris.tetris;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import java_tetris.tetris.shape.Tetrominoe;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;

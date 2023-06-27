@@ -1,6 +1,6 @@
-package tetris;
+package tetris1_2;
 
-import tetris.shape.Tetrominoe;
+import tetris1_2.shape.Tetrominoe;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -37,6 +37,13 @@ public class board extends JPanel {
         setFocusable(true);
         statusbar = parent.getStatusBar();
         addKeyListener(new TAdapter());
+
+        this.setBackground(Color.darkGray);
+        JLabel label = new JLabel("Test v2");
+        label.setForeground(Color.white);
+        label.setBackground(Color.lightGray);
+        label.setOpaque(true);
+        this.add(label);
     }
 
     private int squareWidth() {
@@ -143,47 +150,35 @@ public class board extends JPanel {
         int newY = curY;
 
         while (newY > 0) {
-
             if (!tryMove(curPiece, curX, newY - 1)) {
-
                 break;
             }
-
             newY--;
         }
-
         pieceDropped();
     }
 
     private void oneLineDown() {
-
         if (!tryMove(curPiece, curX, curY - 1)) {
-
             pieceDropped();
         }
     }
 
     private void clearBoard() {
-
         for (int i = 0; i < BOARD_HEIGHT * BOARD_WIDTH; i++) {
-
             board[i] = Tetrominoe.NoShape;
         }
     }
 
     private void pieceDropped() {
-
         for (int i = 0; i < 4; i++) {
-
             int x = curX + curPiece.x(i);
             int y = curY - curPiece.y(i);
             board[(y * BOARD_WIDTH) + x] = curPiece.getShape();
         }
-
         removeFullLines();
 
         if (!isFallingFinished) {
-
             newPiece();
         }
     }
@@ -202,10 +197,6 @@ public class board extends JPanel {
             timer.stop();
 
             restart();
-
-            // if (IsKeyPressed.isRPressed()) {
-            // }
-
         }
     }
 
@@ -217,12 +208,10 @@ public class board extends JPanel {
             int y = newY - newPiece.y(i);
 
             if (x < 0 || x >= BOARD_WIDTH || y < 0 || y >= BOARD_HEIGHT) {
-
                 return false;
             }
 
             if (shapeAt(x, y) != Tetrominoe.NoShape) {
-
                 return false;
             }
         }
@@ -241,13 +230,10 @@ public class board extends JPanel {
         int numFullLines = 0;
 
         for (int i = BOARD_HEIGHT - 1; i >= 0; i--) {
-
             boolean lineIsFull = true;
 
             for (int j = 0; j < BOARD_WIDTH; j++) {
-
                 if (shapeAt(j, i) == Tetrominoe.NoShape) {
-
                     lineIsFull = false;
                     break;
                 }
@@ -310,7 +296,6 @@ public class board extends JPanel {
     }
 
     private void doGameCycle() {
-
         update();
         repaint();
     }
@@ -318,7 +303,6 @@ public class board extends JPanel {
     private void update() {
 
         if (isPaused) {
-
             return;
         }
 
@@ -327,7 +311,6 @@ public class board extends JPanel {
             isFallingFinished = false;
             newPiece();
         } else {
-
             oneLineDown();
         }
     }
@@ -338,7 +321,6 @@ public class board extends JPanel {
         public void keyPressed(KeyEvent e) {
 
             if (curPiece.getShape() == Tetrominoe.NoShape) {
-
                 return;
             }
 
@@ -346,7 +328,6 @@ public class board extends JPanel {
 
             // Java 12 switch expressions
             switch (keycode) {
-
                 case KeyEvent.VK_P -> pause();
                 case KeyEvent.VK_LEFT -> tryMove(curPiece, curX - 1, curY);
                 case KeyEvent.VK_RIGHT -> tryMove(curPiece, curX + 1, curY);
@@ -358,40 +339,4 @@ public class board extends JPanel {
             }
         }
     }
-
-    // public class IsKeyPressed {
-    //     private static volatile boolean rPressed = false;
-
-    //     public static boolean isRPressed() {
-    //         synchronized (IsKeyPressed.class) {
-    //             return rPressed;
-    //         }
-    //     }
-
-    //     public static void main(String[] args) {
-    //         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
-
-    //             @Override
-    //             public boolean dispatchKeyEvent(KeyEvent ke) {
-    //                 synchronized (IsKeyPressed.class) {
-    //                     switch (ke.getID()) {
-    //                         case KeyEvent.KEY_PRESSED:
-    //                             if (ke.getKeyCode() == KeyEvent.VK_R) {
-    //                                 rPressed = true;
-    //                             }
-    //                             break;
-
-    //                         case KeyEvent.KEY_RELEASED:
-    //                             if (ke.getKeyCode() == KeyEvent.VK_R) {
-    //                                 rPressed = false;
-    //                             }
-    //                             break;
-    //                     }
-    //                     return false;
-    //                 }
-    //             }
-    //         });
-    //     }
-
-    // }
 }

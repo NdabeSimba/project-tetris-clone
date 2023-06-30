@@ -6,7 +6,7 @@
 import random, time, pygame, sys
 from pygame.locals import *
 
-FPS = 25
+FPS = 30
 WINDOWWIDTH = 440
 WINDOWHEIGHT = 480
 BOXSIZE = 20
@@ -35,7 +35,7 @@ YELLOW      = (155, 155,   0)
 LIGHTYELLOW = (175, 175,  20)
 
 BORDERCOLOR = BLUE
-BGCOLOR = DARKGRAY
+BGCOLOR = BLACK
 TEXTCOLOR = WHITE
 TEXTSHADOWCOLOR = GRAY
 COLORS      = (     BLUE,      GREEN,      RED,      YELLOW)
@@ -162,7 +162,7 @@ def main():
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
     BASICFONT = pygame.font.Font('freesansbold.ttf', 18)
-    BIGFONT = pygame.font.Font('freesansbold.ttf', 100)
+    BIGFONT = pygame.font.Font('freesansbold.ttf', 70)
     pygame.display.set_caption('Tetromino')
 
     # showTextScreen('Tetromino')
